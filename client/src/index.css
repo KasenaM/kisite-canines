@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply smooth scroll globally via Tailwind class if not handled in HTML */
+html {
+  scroll-behavior: smooth;
+}
