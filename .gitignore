@@ -1,0 +1,30 @@
+# === Frontend & Backend dependencies ===
+/client/node_modules/
+/server/node_modules/
+
+# === Build output ===
+/client/build/
+
+# === Environment files ===
+.env
+.env.*.local
+client/.env
+server/.env
+
+# === Logs ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === OS / Editor metadata ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === Test coverage ===
+/coverage/
+
+# === Yarn PnP ===
+.pnp
+.pnp.js
