@@ -32,7 +32,10 @@ connectDB();
 // Enable CORS
 app.use(
   cors({
-    origin: "https://kisite-canines.vercel.app", 
+    origin: [
+      "http://localhost:5000",
+      "https://kisite-canines.vercel.app"
+    ],
     credentials: true,
   })
 );
