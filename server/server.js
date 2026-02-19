@@ -32,12 +32,12 @@ connectDB();
 // Enable CORS
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend URL
+    origin: "https://kisite-canines.vercel.app", 
     credentials: true,
   })
 );
 
-// Body parser
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
