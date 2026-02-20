@@ -11,7 +11,7 @@ const Profile = () => {
   const [isSaving, setIsSaving] = useState(false);
   const [notification, setNotification] = useState({ show: false, message: "", type: "success" });
   
-  // Form State
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -125,7 +125,7 @@ const Profile = () => {
 </Helmet>
 
       
-      {/* ================= Custom Toast Notification (Bottom Left) ================= */}
+      {/* =================  Toast Notification (Bottom Left) ================= */}
       {notification.show && (
         <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-left-10 duration-300">
           <div className={`flex items-center gap-3 px-4 py-3 rounded-xl shadow-2xl border ${

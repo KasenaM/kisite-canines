@@ -44,24 +44,19 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/* =========================
-   STATIC FOLDER (UPLOADS)
-========================= */
+
 app.use(
   "/uploads",
   express.static(path.join(__dirname, "uploads"))
 );
 
-/* =========================
-   ROUTES
-========================= */
 
-// Base route test
+
 app.get("/", (req, res) => {
   res.send("Kisite Canines API Running 🐶");
 });
 
-// API Routes
+
 app.use("/api/auth", authRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/dogs", dogRoutes);
@@ -71,9 +66,7 @@ app.use("/api/analytics", analyticsRoutes);
 app.use("/api/service-instances", serviceInstancesRoutes); 
 app.use("/api/activities", activityRoutes);        
 
-/* =========================
-   GLOBAL ERROR HANDLER
-========================= */
+
 app.use((err, req, res, next) => {
   console.error("Server Error:", err.stack);
   res.status(500).json({
@@ -81,9 +74,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-/* =========================
-   SERVER START
-========================= */
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

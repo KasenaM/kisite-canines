@@ -17,7 +17,7 @@ function LoginPromptModal({ visible, onClose, message }) {
         <h2 className="text-xl font-semibold text-[#303A40] mb-4">Login Required</h2>
         <p className="text-[#4F6866] mb-6">{message}</p>
 
-        {/* Button container with flex layout */}
+        {/* Button container*/}
         <div className="flex justify-between items-center mt-4">
           <button
             onClick={onClose}

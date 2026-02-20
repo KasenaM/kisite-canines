@@ -6,13 +6,13 @@ const paymentSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "ServiceBooking",
       required: true,
-      index: true, // for analytics & queries
+      index: true,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      index: true, // total spent per user
+      index: true, 
     },
     amount: { type: Number, required: true },
 
@@ -20,7 +20,7 @@ const paymentSchema = new mongoose.Schema(
       type: String,
       enum: ["Pending", "Success", "Failed"],
       default: "Pending",
-      index: true, // for completion/cancellation rate metrics
+      index: true, 
     },
 
     paymentMethod: {
@@ -33,7 +33,7 @@ const paymentSchema = new mongoose.Schema(
 
     referenceCode: { type: String, unique: true },
 
-    // Optional field for analytics (like refunds or notes)
+   
     notes: { type: String, default: "" },
     isRefunded: { type: Boolean, default: false },
   },

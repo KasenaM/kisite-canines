@@ -14,12 +14,12 @@ const MyDogs = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   
-  // State for inline name editing
+
   const [editingNameId, setEditingNameId] = useState(null);
   const [newName, setNewName] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
 
-  /* ---------- Fetch Dogs Effect ---------- */
+ 
   useEffect(() => {
     const fetchDogs = async () => {
       if (!user) return;
@@ -37,7 +37,7 @@ const MyDogs = () => {
     fetchDogs();
   }, [user]);
 
-  /* ---------- Inline Name Update ---------- */
+
   const handleNameSubmit = async (dogId) => {
     if (!newName.trim()) return;
     setIsUpdating(true);

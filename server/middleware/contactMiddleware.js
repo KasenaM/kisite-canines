@@ -1,4 +1,4 @@
-const rateLimitMap = new Map(); // IP -> [timestamps]
+const rateLimitMap = new Map(); 
 
 const validateContactRequest = (req, res, next) => {
   const { fullName, email, phone, subject, message } = req.body;
@@ -17,7 +17,7 @@ const validateContactRequest = (req, res, next) => {
     return res.status(400).json({ message: "Invalid or incomplete form submission." });
   }
 
-  // Sanitize inputs
+ 
   req.body.fullName = fullName.trim();
   req.body.email = email.trim();
   req.body.phone = phone.trim();
@@ -30,7 +30,7 @@ const validateContactRequest = (req, res, next) => {
 const limitContactSubmissions = (req, res, next) => {
   const ip = req.ip;
   const now = Date.now();
-  const windowTime = 60 * 1000; // 1 minute
+  const windowTime = 60 * 1000; 
   const maxRequests = 3;
 
   const timestamps = rateLimitMap.get(ip) || [];

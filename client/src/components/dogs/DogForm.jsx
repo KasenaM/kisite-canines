@@ -18,7 +18,7 @@ const DogForm = ({ mode = "add", initialData = null }) => {
 
   const [step, setStep] = useState(0);
   const [totalDogs, setTotalDogs] = useState(isEdit ? 1 : 1);
-  // If editing, initialize with initialData; if adding, use emptyDog array
+  
   const [dogs, setDogs] = useState(isEdit && initialData ? [initialData] : [emptyDog]);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ const DogForm = ({ mode = "add", initialData = null }) => {
 
   const fileInputRefs = useRef([]);
 
-  // Sync data if initialData changes (relevant for Edit mode)
+  
   useEffect(() => {
     if (isEdit && initialData) {
       setDogs([initialData]);
@@ -40,7 +40,7 @@ const DogForm = ({ mode = "add", initialData = null }) => {
     if (!dog.breed.trim()) errs.breed = "Breed is required";
     if (!dog.ageValue) errs.age = "Age is required";
     if (!dog.gender) errs.gender = "Gender is required";
-    // In edit mode, image might be optional if you keep the old one
+    
     if (!isEdit && !dog.image) errs.image = "Image is required";
     return errs;
   };

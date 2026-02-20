@@ -23,7 +23,7 @@ exports.createPayment = async (req, res) => {
 
     const newPayment = new Payment({
       booking: booking._id,
-      user: req.userId, // ✅ FIXED
+      user: req.userId, 
       amount: booking.totalAmount,
       status: "Success",
       paymentMethod,
@@ -48,7 +48,7 @@ exports.createPayment = async (req, res) => {
 /* ================= GET USER PAYMENTS ================= */
 exports.getUserPayments = async (req, res) => {
   try {
-    const payments = await Payment.find({ user: req.userId }) // ✅ FIXED
+    const payments = await Payment.find({ user: req.userId })
       .populate("booking")
       .sort({ createdAt: -1 });
 

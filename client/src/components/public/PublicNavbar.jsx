@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext"; // ✅ IMPORTED
 
-function PublicNavbar({ cartItems = [] }) {
+function PublicNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,16 +12,17 @@ function PublicNavbar({ cartItems = [] }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { cart } = useCart(); // ✅ USING GLOBAL CART
 
   const isHomePage = location.pathname === "/";
   const isAboutPage = location.pathname === "/about-us";
   const isServicesPage = ["/training"].includes(location.pathname);
   const isListingsPage = location.pathname === "/our-listings";
-  const isTransparentPage = isHomePage || isAboutPage || isServicesPage || isListingsPage;
+  const isTransparentPage =
+    isHomePage || isAboutPage || isServicesPage || isListingsPage;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    // Close mobile menu on route change
     setMobileMenuOpen(false);
   }, [location]);
 
@@ -42,7 +44,9 @@ function PublicNavbar({ cartItems = [] }) {
     };
   }, []);
 
-  const navbarBase = "fixed top-0 left-0 w-full px-4 py-4 z-50 transition-all duration-300";
+  const navbarBase =
+    "fixed top-0 left-0 w-full px-4 py-4 z-50 transition-all duration-300";
+
   const navbarColor = isTransparentPage
     ? scrolled
       ? "bg-[#303A40] shadow rounded-b-xl"
@@ -60,7 +64,10 @@ function PublicNavbar({ cartItems = [] }) {
         
         {/* Mobile: Hamburger (Left) */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setMobileMenuOpen((p) => !p)} aria-label="Toggle menu">
+          <button
+            onClick={() => setMobileMenuOpen((p) => !p)}
+            aria-label="Toggle menu"
+          >
             <svg
               className="w-7 h-7 text-[#EAEAE6]"
               fill="none"
@@ -68,21 +75,41 @@ function PublicNavbar({ cartItems = [] }) {
               strokeWidth="2"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
 
-        {/* Logo (Center on Mobile) */}
-        <Link to="/" className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
-          <img src="/images/doglogo.png" alt="Kisite Logo" className="h-10" />
+        {/* Logo */}
+        <Link
+          to="/"
+          className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0"
+        >
+          <img
+            src="/images/doglogo.png"
+            alt="Kisite Logo"
+            className="h-10"
+          />
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center justify-center">
           <ul className="flex space-x-10 font-medium text-[#EAEAE6]">
-            <li><Link to="/" className="hover:text-[#CFBE3A]">Home</Link></li>
-            <li><Link to="/about-us" className="hover:text-[#CFBE3A]">About Us</Link></li>
+            <li>
+              <Link to="/" className="hover:text-[#CFBE3A]">
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/about-us" className="hover:text-[#CFBE3A]">
+                About Us
+              </Link>
+            </li>
 
             <li className="relative" ref={dropdownRef}>
               <button
@@ -91,6 +118,7 @@ function PublicNavbar({ cartItems = [] }) {
               >
                 Services
               </button>
+
               {dropdownOpen && (
                 <ul className="absolute left-0 top-full mt-2 bg-[#4F6866] border border-[#9BAFAF] rounded shadow-md p-2 space-y-1 z-10">
                   {["training", "grooming", "boarding"].map((service) => (
@@ -108,12 +136,21 @@ function PublicNavbar({ cartItems = [] }) {
               )}
             </li>
 
-            <li><Link to="/our-listings" className="hover:text-[#CFBE3A]">Our Listings</Link></li>
-            <li><Link to="/contact-us" className="hover:text-[#CFBE3A]">Contact Us</Link></li>
+            <li>
+              <Link to="/our-listings" className="hover:text-[#CFBE3A]">
+                Our Listings
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/contact-us" className="hover:text-[#CFBE3A]">
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Cart + Account Icons */}
+        {/* Cart + Account */}
         <div className="flex items-center gap-4">
           
           {/* Cart */}
@@ -132,13 +169,12 @@ function PublicNavbar({ cartItems = [] }) {
               />
             </svg>
 
-            {cartItems.length > 0 && (
+            {cart.length > 0 && (
               <span className="absolute -top-1 -right-1 bg-[#CFBE3A] text-[#303A40] rounded-full text-xs w-5 h-5 flex items-center justify-center">
-                {cartItems.length}
+                {cart.length}
               </span>
             )}
 
-            {/* Changed: Tooltip only visible on medium screens and up on hover */}
             <span className="hidden md:block absolute -bottom-7 left-1/2 -translate-x-1/2 text-xs bg-[#D7CD43] text-[#303A40] px-2 py-0.5 rounded opacity-0 md:group-hover:opacity-100 transition pointer-events-none">
               Cart
             </span>
@@ -160,7 +196,6 @@ function PublicNavbar({ cartItems = [] }) {
               />
             </svg>
 
-            {/* Changed: Tooltip only visible on medium screens and up on hover */}
             <span className="hidden md:block absolute -bottom-7 left-1/2 -translate-x-1/2 text-xs bg-[#D7CD43] text-[#303A40] px-2 py-0.5 rounded opacity-0 md:group-hover:opacity-100 transition pointer-events-none">
               Account
             </span>

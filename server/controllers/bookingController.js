@@ -2,9 +2,7 @@ const ServiceBooking = require('../models/Booking');
 const ServiceInstance = require('../models/ServiceInstances');
 const Activity = require('../models/Activity');
 
-/* ===========================
-   HELPER FUNCTIONS
-=========================== */
+
 
 const hasResidentialService = (bookings = []) => {
   return bookings.some(dog =>

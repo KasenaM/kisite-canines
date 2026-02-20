@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    // --- Basic Info ---
+    
     name: { 
       type: String, 
       required: true, 
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
       required: true 
     },
     
-    // --- Contact & Location ---
+   
     phone: { 
       type: String, 
       required: true, 
@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema(
       trim: true 
     },
 
-    // --- Emergency Contact Info ---
+    
     emergencyName: { 
       type: String, 
       required: true, 

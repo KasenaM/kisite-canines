@@ -73,7 +73,7 @@ function Training() {
   {/* Overlay */}
   <div className="absolute w-full h-full bg-black/50"></div>
 
-  {/* Foreground content with AOS */}
+  {/* Foreground content  */}
   <div
     className="relative z-10 text-center px-4"
     data-aos="fade-up"
@@ -99,7 +99,7 @@ function Training() {
 <section className="training-overview bg-white py-16 px-6">
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
     
-    {/* Left Image with Framer Motion and AOS */}
+    {/* Left Image */}
     <motion.div
       className="flex-1"
       initial={{ opacity: 0, x: -50 }}
@@ -132,7 +132,7 @@ function Training() {
       </p>
     </motion.div>
 
-    {/* Right Image with Framer Motion and AOS */}
+    {/* Right Image  */}
     <motion.div
       className="flex-1"
       initial={{ opacity: 0, x: 50 }}

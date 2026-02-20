@@ -32,7 +32,7 @@ function OurListings() {
     };
   }, []);
 
-  // ✅ Sticky Nav Scroll Fix (ONLY change made)
+ 
   const handleBreedClick = (e, breed) => {
     e.preventDefault();
 

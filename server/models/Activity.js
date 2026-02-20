@@ -26,7 +26,7 @@ const activitySchema = new mongoose.Schema(
 
     meta: {
       type: Object,
-      default: {}, // store related IDs or details, e.g., { dogId, bookingId, serviceId, paymentId }
+      default: {}, 
     },
 
     description: {

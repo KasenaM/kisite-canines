@@ -8,7 +8,7 @@ import {
   User,
   CreditCard,
   PlusCircle,
-  X, // Added X icon to close the mobile overlay
+  X, 
 } from "lucide-react";
 
 const links = [
@@ -25,7 +25,6 @@ const ClientSidebar = ({ isOpen, onClose }) => {
   return (
     <>
       {/* ================= Overlay (Mobile Only) ================= */}
-      {/* This darkens the background when the sidebar is open on mobile */}
       <div
         className={`
           fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 md:hidden
@@ -45,7 +44,7 @@ const ClientSidebar = ({ isOpen, onClose }) => {
           flex flex-col
         `}
       >
-        {/* Mobile Header: Show close button inside the overlay for better UX */}
+        {/* Mobile Header */}
         <div className="flex items-center justify-between px-6 py-5 md:hidden border-b border-[#9BAFAF]/20">
           <span className="font-bold text-[#303A40] text-lg">Menu</span>
           <button onClick={onClose} className="text-[#303A40] hover:bg-gray-200 p-1 rounded-full">
@@ -90,10 +89,7 @@ const ClientSidebar = ({ isOpen, onClose }) => {
         {/* Bottom CTA Section */}
         <div className="p-4 border-t border-[#9BAFAF]/40 bg-[#EAEAE8]">
           <button
-            onClick={() => {
-              navigate("/book-service");
-              onClose();
-            }}
+             onClick={() => navigate("/my-services/book-service", { state: { from: "my-services" } })}
             className="w-full flex items-center justify-center gap-2 bg-[#D7CD43] text-[#303A40] font-bold py-3.5 rounded-xl hover:brightness-95 active:scale-[0.98] transition-all shadow-sm"
           >
             <PlusCircle size={20} strokeWidth={2.5} />

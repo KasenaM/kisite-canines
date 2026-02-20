@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-/* ================= SERVICE SCHEMA ================= */
+
 const serviceSchema = new mongoose.Schema({
   service: {
     type: String,

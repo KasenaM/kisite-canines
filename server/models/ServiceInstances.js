@@ -7,7 +7,7 @@ const serviceInstanceSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "ServiceBooking",
       required: true,
-      index: true, // for analytics
+      index: true, 
     },
 
     dogId: {

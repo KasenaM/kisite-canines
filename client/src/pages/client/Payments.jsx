@@ -22,12 +22,12 @@ const Payments = () => {
   const [bookings, setBookings] = useState([]);
   const [expandedBooking, setExpandedBooking] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterStatus, setFilterStatus] = useState("All"); // Options: All, Paid, Unpaid
+  const [filterStatus, setFilterStatus] = useState("All"); 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   
   const filterRef = useRef(null);
 
-  // Close dropdown when clicking outside
+ 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (filterRef.current && !filterRef.current.contains(event.target)) {

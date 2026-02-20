@@ -60,7 +60,7 @@ function Login() {
       const res = await axiosInstance.post(endpoint, payload);
       const { token, user: userData } = res.data;
 
-      // Preparing success message
+     
       const welcomeName = isSignUp ? data.name : (userData.name || "User");
       const msg = isSignUp 
         ? `Welcome aboard ${welcomeName}! Your account has been created successfully.` 
@@ -68,11 +68,11 @@ function Login() {
       
       setSuccessMsg(msg);
 
-      // Store auth data
+  
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(userData));
 
-      // Timer to allow users to read the success message before redirecting
+    
       setTimeout(() => {
         login(userData);
         navigate("/dashboard", { replace: true });
@@ -81,7 +81,7 @@ function Login() {
     } catch (err) {
       const message = err.response?.data?.message || "";
 
-      // Reseting ReCAPTCHA on any error
+    
       handleResetRecaptcha();
 
       if (message.includes("exists")) {

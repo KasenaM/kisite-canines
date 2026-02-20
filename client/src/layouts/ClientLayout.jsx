@@ -9,7 +9,7 @@ const ClientLayout = () => {
 
   return (
     <div className="h-screen bg-[#EAEAE8] flex flex-col overflow-hidden">
-      {/* 1️⃣ TOP NAVBAR (full width, always on top) */}
+      {/* 1️⃣ TOP NAVBAR  */}
       <ClientDashboardNavbar
         onToggleSidebar={() => setSidebarOpen((p) => !p)}
         isSidebarOpen={sidebarOpen}

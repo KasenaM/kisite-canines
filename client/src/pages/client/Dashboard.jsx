@@ -16,7 +16,7 @@ const Dashboard = () => {
   const [analytics, setAnalytics] = useState({});
   const [userName, setUserName] = useState("User");
 
-  /* ================= FETCH USER DASHBOARD ANALYTICS ================= */
+ 
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
@@ -41,7 +41,7 @@ const Dashboard = () => {
     fetchAnalytics();
   }, []);
 
-  /* ================= GREETING ================= */
+  
   const greeting = useMemo(() => {
     const hour = new Date().getHours();
     if (hour < 12) return "Good Morning";
@@ -49,7 +49,7 @@ const Dashboard = () => {
     return "Good Evening";
   }, []);
 
-  /* ================= STATS ================= */
+ 
   const {
     totalDogs = 0,
     cancelledServices = 0,

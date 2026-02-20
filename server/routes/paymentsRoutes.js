@@ -8,11 +8,11 @@ const {
   getAllPayments
 } = require("../controllers/paymentController");
 
-// Protect ALL user routes
+
 router.get("/", authMiddleware, getUserPayments);
 router.post("/", authMiddleware, createPayment);
 
-// Admin route (optional)
+
 router.get("/all", authMiddleware, getAllPayments);
 
 module.exports = router;

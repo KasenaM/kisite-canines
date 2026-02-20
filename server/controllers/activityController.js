@@ -2,7 +2,7 @@
 const Activity = require("../models/Activity");
 const mongoose = require("mongoose");
 
-/* ================= CREATE NEW ACTIVITY ================= */
+/* ================= NEW ACTIVITY ================= */
 exports.logActivity = async (req, res) => {
   try {
     const { userId, actionType, meta = {}, description = "" } = req.body;
@@ -39,7 +39,7 @@ exports.getAllActivities = async (req, res) => {
   }
 };
 
-/* ================= GET RECENT ACTIVITIES FOR USER ================= */
+/* ================= GET  ACTIVITIES FOR USER ================= */
 exports.getUserActivities = async (req, res) => {
   try {
     const { userId } = req.params;
