@@ -51,7 +51,7 @@ function Login() {
     }
 
     setLoading(true);
-    const endpoint = isSignUp ? "/auth/signup" : "/auth/login";
+    const endpoint = isSignUp ? "/api/auth/signup" : "/api/auth/login";
     const payload = isSignUp
       ? { ...data, recaptchaToken }
       : { email: data.email, password: data.password, recaptchaToken };
