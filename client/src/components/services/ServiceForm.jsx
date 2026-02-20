@@ -101,7 +101,7 @@ function ServiceForm() {
         totalAmount: calculateTotal(),
       };
 
-      const response = await axiosInstance.post("/bookings", payload);
+      const response = await axiosInstance.post("/api/bookings", payload);
       if (response.status === 201) navigate("/my-services");
     } catch (error) {
       setDetailError(error.response?.data?.message || "Failed to submit booking.");

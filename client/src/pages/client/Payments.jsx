@@ -43,7 +43,7 @@ const Payments = () => {
     try {
       setLoading(true);
       setError("");
-      const res = await axiosInstance.get("/bookings");
+      const res = await axiosInstance.get("/api/bookings");
       setBookings(res.data || []);
     } catch (err) {
       console.error("Fetch Error:", err);

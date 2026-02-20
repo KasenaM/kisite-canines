@@ -24,7 +24,7 @@ const MyDogs = () => {
     const fetchDogs = async () => {
       if (!user) return;
       try {
-        const res = await axiosInstance.get("/dogs");
+        const res = await axiosInstance.get("/api/dogs");
         setDogs(res.data || []);
       } catch (err) {
         console.error(err);
@@ -43,7 +43,7 @@ const MyDogs = () => {
     setIsUpdating(true);
     try {
       
-      await axiosInstance.put(`/dogs/${dogId}`, { name: newName });
+      await axiosInstance.put(`/api/dogs/${dogId}`, { name: newName });
       
      
       setDogs(dogs.map(d => d._id === dogId ? { ...d, name: newName } : d));

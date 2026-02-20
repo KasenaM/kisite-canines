@@ -102,7 +102,7 @@ const DogForm = ({ mode = "add", initialData = null }) => {
           formData.append("image", dog.image);
         }
 
-        await axiosInstance.put(`/dogs/${dog._id}`, formData, {
+        await axiosInstance.put(`/api/dogs/${dog._id}`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       } else {
@@ -115,7 +115,7 @@ const DogForm = ({ mode = "add", initialData = null }) => {
           formData.append("image", dog.image);
           formData.append("source", "client");
 
-          await axiosInstance.post("/dogs", formData, {
+          await axiosInstance.post("/api/dogs", formData, {
             headers: { "Content-Type": "multipart/form-data" },
           });
         }

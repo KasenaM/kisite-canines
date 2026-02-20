@@ -34,8 +34,8 @@ const MyServices = () => {
       setLoading(true);
       setError("");
       const [dogsRes, servicesRes] = await Promise.all([
-        axiosInstance.get("/dogs"),
-        axiosInstance.get("/bookings"),
+        axiosInstance.get("/api/dogs"),
+        axiosInstance.get("/api/bookings"),
       ]);
       setHasDogs(dogsRes.data.length > 0);
       setBookings(servicesRes.data || []);
@@ -76,10 +76,10 @@ const MyServices = () => {
 
     try {
       if (type === "cancelService") {
-        await axiosInstance.patch(`/bookings/service/${data.bookingId}/${data.dogItemId}/${data.serviceIndex}/cancel`);
+        await axiosInstance.patch(`/api/bookings/service/${data.bookingId}/${data.dogItemId}/${data.serviceIndex}/cancel`);
         showToast("Service cancelled. Booking status has been updated.");
       } else if (type === "cancelBooking") {
-        await axiosInstance.patch(`/bookings/${data.bookingId}/cancel`);
+        await axiosInstance.patch(`/api/bookings/${data.bookingId}/cancel`);
         showToast("Entire booking cancelled. Total reset to KES 0.");
       }
       await fetchData();

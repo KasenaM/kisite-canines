@@ -13,7 +13,7 @@ const Bookings = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axiosInstance.get("/dogs").then((res) => {
+    axiosInstance.get("/api/dogs").then((res) => {
       setDogs(res.data || []);
       if (dogId) {
         const dog = res.data.find(d => d._id === dogId);

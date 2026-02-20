@@ -22,12 +22,12 @@ const Dashboard = () => {
       try {
         setLoading(true);
 
-        const profileRes = await axiosInstance.get("/auth/me");
+        const profileRes = await axiosInstance.get("/api/auth/me");
         const userId = profileRes.data._id;
         setUserName(profileRes.data?.name || "User");
 
         const analyticsRes = await axiosInstance.get(
-          `/analytics/user/${userId}`
+          `/api/analytics/user/${userId}`
         );
 
         setAnalytics(analyticsRes.data);
