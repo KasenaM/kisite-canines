@@ -68,7 +68,7 @@ function ServiceForm() {
   useEffect(() => {
     const fetchUserDogs = async () => {
       try {
-        const response = await axiosInstance.get("/dogs");
+        const response = await axiosInstance.get("/api/dogs");
         setDogs(response.data || []);
       } catch (err) {
         console.error("Error fetching dogs:", err);
